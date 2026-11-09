@@ -1,0 +1,9 @@
+# 运行时生成的日志, 不要提交
+PureDesktopSwitcher.log
+
+# 预览临时文件
+icons/_preview_*.png
+
+# Python
+__pycache__/
+*.pyc
