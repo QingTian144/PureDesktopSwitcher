@@ -1,5 +1,7 @@
 # 纯净桌面切换器 Pure Desktop Switcher
 
+![License](https://img.shields.io/badge/License-MIT-blue) ![Platform](https://img.shields.io/badge/Platform-Windows%2010%2F11-lightgrey) ![Python](https://img.shields.io/badge/Python-3.8%2B-green) ![Stars](https://img.shields.io/github/stars/QingTian144/PureDesktopSwitcher?style=social)
+
 > 一键在「正常桌面」和「纯净桌面（只留壁纸）」之间切换的小工具。
 > **不移动、不删除任何文件**，只是隐藏/显示桌面图标这一层。
 >
@@ -93,6 +95,21 @@ python 纯净桌面切换器.pyw --toggle   # 切换一次后退出
 python 纯净桌面切换器.pyw --hide    # 隐藏桌面图标
 python 纯净桌面切换器.pyw --show    # 显示桌面图标
 ```
+
+## 🔒 安全性与透明度
+
+担心来路不明的软件有风险？这个项目从头到尾只有一件事：**切换桌面图标的显示状态**。欢迎逐行审查：
+
+- **代码 100% 开源**：全部源码不到 900 行，没有任何混淆、没有预编译的二进制文件，你能看到的每一行就是它运行的每一行
+- **零第三方依赖**：只用 Python 标准库 + Windows 系统自带 API（GDI/GDI+/资源管理器命令），不存在供应链投毒风险
+- **完全离线**：程序不做任何网络请求，不连接任何服务器，不收集不上传任何数据
+- **所有"写"操作只有 3 处**，全都在你自己的电脑上：
+  1. 注册表 `HKCU\...\Explorer\Advanced\HideIcons` —— 桌面图标显示/隐藏的官方开关
+  2. （可选，需你手动勾选）注册表 `HKCU\...\Run` —— 开机自启
+  3. 本地日志文件 `PureDesktopSwitcher.log` —— 排障用
+- **不做什么**：不添加右键菜单、不修改系统文件、不注册服务、不留后台进程（退出即干净）、不碰你桌面上的任何文件
+
+> 审查建议：主程序就是 `纯净桌面切换器.pyw`，用记事本就能打开看。
 
 ## 🧠 工作原理
 
